@@ -1,0 +1,51 @@
+# API & serving
+fastapi==0.110.3
+uvicorn[standard]==0.30.1
+pydantic==2.7.1
+
+# NLP — Tier 1 classical
+spacy==3.7.4
+nltk==3.8.1
+scikit-learn==1.5.0
+
+# NLP — Tier 2 small models
+transformers==4.41.2
+optimum[onnxruntime]==1.20.0
+sentence-transformers==3.0.1
+torch==2.2.2
+
+# GPT4All local inference
+gpt4all==2.7.0
+
+# LLM clients — Tier 3
+groq==0.9.0
+anthropic==0.28.0
+
+# Supabase (cache + logging)
+supabase==2.4.6
+
+# ML / routing classifier
+xgboost==2.0.3
+lightgbm==4.3.0
+optuna==3.6.1
+# shap==0.45.1  ← optional: needs cmake (brew install cmake), then: pip install shap
+
+# MLflow experiment tracking
+mlflow==2.13.0
+
+# Drift detection
+scipy==1.13.0
+evidently==0.4.30
+
+# Dashboard
+streamlit>=1.35.0
+
+# Utilities
+python-dotenv==1.0.1
+pyyaml==6.0.1
+tenacity==8.3.0
+loguru==0.7.2
+httpx==0.27.0
+numpy==1.26.4
+pandas==2.2.2
+rouge-score==0.1.2

@@ -1,0 +1,55 @@
+routing:
+  use_adaptive_router: false  # Set to true after training the classifier
+  tier1_threshold: 0.35
+  tier2_threshold: 0.65
+  confidence_floor: 0.72
+
+complexity:
+  weights:
+    entropy: 0.25
+    oov_rate: 0.20
+    perplexity: 0.25
+    entity_density: 0.15
+    dep_tree_depth: 0.15
+
+cache:
+  similarity_threshold: 0.92   # query-level exact cache (near-duplicates)
+  ttl_hours: 24
+
+# Unified knowledge store — vector + keyword dual-indexed, no entry limit.
+# Thresholds control when to use extractive vs synthesis vs miss.
+# These can be left at defaults; only change if you want to tune aggressiveness.
+knowledge_store:
+  vec_similarity_floor: 0.55   # minimum cosine sim to include a chunk as candidate
+  high_threshold: 0.78         # combined score ≥ this → extractive (no model)
+  low_threshold: 0.62          # combined score ≥ this → synthesis (compressed prompt)
+
+tier2:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  onnx_quantized: true
+
+tier3:
+  max_tokens: 512
+  temperature: 0.1
+
+# ── Inference backend (shared by Tier 2 generative + Tier 3) ──────────────────
+# Switch provider/model live via  POST /admin/switch-backend
+# or set env vars INFERENCE_PROVIDER / INFERENCE_MODEL to override at startup.
+#
+# provider options : gpt4all | groq
+#
+# gpt4all models   : llama3-8b | deepseek-r1-8b | llama3.2-3b | phi3-mini
+# groq models      : llama3-8b | llama3.1-8b    | llama3.3-70b | mixtral-8x7b
+inference:
+  provider: "gpt4all"
+  model: "phi3-mini"
+
+monitoring:
+  drift_check_interval: 100
+  psi_threshold: 0.2
+  mlflow_experiment: "hybrid-nlp-router"
+
+supabase:
+  cache_table: "semantic_cache"
+  logs_table: "routing_logs"
+  metrics_table: "tier_metrics"
