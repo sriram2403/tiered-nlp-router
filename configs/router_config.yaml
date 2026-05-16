@@ -47,7 +47,7 @@ inference:
 monitoring:
   drift_check_interval: 100
   psi_threshold: 0.2
-  mlflow_experiment: "hybrid-nlp-router"
+  mlflow_experiment: "tiered-nlp-router"
 
 supabase:
   cache_table: "semantic_cache"

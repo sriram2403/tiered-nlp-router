@@ -1,5 +1,5 @@
 """
-Hybrid NLP Router — Dashboard
+Tiered NLP Router — Dashboard
 ------------------------------
 Run with:  streamlit run dashboard/app.py
 Requires the FastAPI server to be running at http://localhost:8000
@@ -13,7 +13,7 @@ API = "http://localhost:8000"
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Hybrid NLP Router",
+    page_title="Tiered NLP Router",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -171,7 +171,7 @@ with st.sidebar:
 
 # ── Main area ─────────────────────────────────────────────────────────────────
 
-st.title("Hybrid NLP Router")
+st.title("Tiered NLP Router")
 st.caption("Smart routing that decides when to call an LLM — and when not to.")
 
 tabs = st.tabs(["💬 Query", "📊 Metrics", "📖 How It Works"])

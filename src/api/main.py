@@ -37,7 +37,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Hybrid NLP Router",
+    title="Tiered NLP Router",
     description="LLM-call reduction engine with 3-tier NLP routing",
     version="1.0.0",
     lifespan=lifespan,

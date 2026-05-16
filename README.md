@@ -1,4 +1,4 @@
-# Hybrid NLP Router
+# Tiered NLP Router
 
 A production-ready system that intelligently decides how to answer a query — using the cheapest method that still gives a correct result. It combines classical NLP, small local models, a two-layer knowledge cache, and a large language model, routing each query to whichever tier can handle it. Typically **60–80% of queries never reach the LLM at all**.
 
@@ -166,7 +166,7 @@ routing:
 ## Project Structure
 
 ```text
-hybrid-nlp-router/
+tiered-nlp-router/
 ├── src/
 │   ├── api/
 │   │   ├── main.py             # FastAPI app — /route, /metrics, /health, /admin/*
@@ -211,8 +211,8 @@ hybrid-nlp-router/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/your-username/hybrid-nlp-router.git
-cd hybrid-nlp-router
+git clone https://github.com/your-username/tiered-nlp-router.git
+cd tiered-nlp-router
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt

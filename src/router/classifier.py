@@ -67,7 +67,7 @@ class AdaptiveRouter:
     def __init__(
         self,
         model_path: str = "models/adaptive_router.pkl",
-        mlflow_experiment: str = "hybrid-nlp-router",
+        mlflow_experiment: str = "tiered-nlp-router",
         n_optuna_trials: int = 50,
     ):
         self.model_path = Path(model_path)

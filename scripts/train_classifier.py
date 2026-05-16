@@ -70,7 +70,7 @@ def _enable_adaptive_routing(config_path: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Train the Hybrid NLP Router's adaptive XGBoost classifier"
+        description="Train the Tiered NLP Router's adaptive XGBoost classifier"
     )
     parser.add_argument(
         "--no-tune",

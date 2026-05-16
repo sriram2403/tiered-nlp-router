@@ -20,7 +20,7 @@ except ImportError:
 
 
 class RoutingTracker:
-    def __init__(self, experiment: str = "hybrid-nlp-router"):
+    def __init__(self, experiment: str = "tiered-nlp-router"):
         self.experiment = experiment
         self._supabase = None
         self._total_queries = 0
